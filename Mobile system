@@ -1,0 +1,67 @@
+def check_balance(balance):
+    print(f"your balance is:{balance} ")
+    return balance
+
+def add_balance(balance):
+  recharge = float(input("Please enter recharge amount: "))
+  if recharge < 0:
+    print("Invalid amount entered")
+  else:
+    balance += recharge
+    print(f"recharge successful, balance is {balance}")
+  return balance
+
+def use_balance(balance):
+  spent_balance = float(input("please enter your balance: "))
+  if spent_balance > balance:
+    print("Insufficient balance: ")
+  elif spent_balance <= 0:
+    print("invalid: ")
+  else:
+    balance -= spent_balance
+    print("you recharge is completed")
+  return balance
+
+
+def change_number(reg_number):
+    user_number = float(input("enter your existing reg number: "))
+    if user_number == reg_number:
+      new_number = float(input("Enter new number"))
+      print(f"Reg number updated :{new_number}")
+      return new_number
+    else:
+      print("kindly enter correct reg number")
+    return reg_number
+  
+def mobile_system():
+  mobile_balance = 50
+  reg_number= 9876543210
+
+  while True:
+   print("\n---Main menu--")
+   print("1. Check Balance")
+   print("2. Use Balance")
+   print("3. Add Recharge")
+   print("4. Change Number")
+   print("5. Exit")
+
+
+   user_option = input("Please select required option:")
+
+   if user_option == "1":
+    mobile_balance = check_balance(mobile_balance)
+   elif user_option == "2":
+    mobile_balance = use_balance(mobile_balance)
+   elif user_option == "3":
+    mobile_balance = add_balance(mobile_balance)
+   elif user_option == "4":
+    reg_number = change_number(reg_number)
+   elif user_option == "5":
+    print("Thanks for using out service, have a great day")
+    break
+  
+   else:
+    print("Invalid selecton. Kindly try again")
+
+
+mobile_system ()
